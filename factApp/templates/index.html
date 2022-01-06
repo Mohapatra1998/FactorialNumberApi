@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Api</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <h3 class="text-center">Input Form</h3>
+            <form action="{% url 'fact' %}" method="POST" class="p-2 m-2">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label class="control-label col-sm-5" for="">Enter A Number:</label>
+                    <div class="col-sm-7">
+                      <input type="number" class="form-control" id="fact" name="fact" placeholder="Enter Factoral" required>
+                    </div>
+                  </div>
+                  <center><button type="submit" class="btn btn-primary">Submit</button></center>
+            </form>
+        </div>
+        {% if fact %}
+        <div class="col-sm-4 p-3 m-4">
+            <h3>Factorial Number : {{fact}}</h3>
+        </div>
+        {% endif %}
+        <div class="col-sm-2"></div>
+
+    </div>
+    
+</body>
+</html>
